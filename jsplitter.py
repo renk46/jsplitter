@@ -31,6 +31,8 @@ def split_json_array(json, piece=50, filename=False):
             create_file("%s/output/%s%s.json" % (dir, filename, i+1), partial_data)
             partial_data = []
         printProgressBar(i + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
+    if len(partial_data) > 0:
+        create_file("%s/output/%s%s.json" % (dir, filename, l), partial_data)
 
 def split_json_file(pathfile, piece):
     try:
